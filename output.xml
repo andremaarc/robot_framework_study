@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.13.0 on win32)" generated="2024-10-21T17:26:25.791547" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Steps" source="c:\Users\andre\OneDrive\Documentos\_study\QA study\python-study\project_robot\test\login_steps.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-10-21T17:26:26.164532" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-21T17:26:26.164154" elapsed="1.724109"/>
+</kw>
+<test id="s1-t1" name="Successful Login" line="7">
+<kw name="I navegate to the login page" owner="login_keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:26:27.890367" level="INFO">Opening url 'https://www.saucedemo.com'</msg>
+<arg>${URL_DATA["baseUrl"]}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-21T17:26:27.889750" elapsed="1.198522"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=user-name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-21T17:26:29.088599" elapsed="0.082530"/>
+</kw>
+<status status="PASS" start="2024-10-21T17:26:27.889291" elapsed="1.282128"/>
+</kw>
+<kw name="I input correct credentials" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:26:29.173288" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${LOGIN_DATA["correctData"]["username"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:26:29.172447" elapsed="0.155351"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:26:29.328691" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${LOGIN_DATA["correctData"]["password"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:26:29.328085" elapsed="0.099216"/>
+</kw>
+<status status="PASS" start="2024-10-21T17:26:29.171970" elapsed="0.255554"/>
+</kw>
+<kw name="I click on the login button" owner="login_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:26:29.428596" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:26:29.428340" elapsed="0.092448"/>
+</kw>
+<status status="PASS" start="2024-10-21T17:26:29.427980" elapsed="0.093034"/>
+</kw>
+<kw name="I am able view the home page" owner="login_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:26:29.642698" level="INFO">${location} = https://www.saucedemo.com/inventory.html</msg>
+<var>${location}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-21T17:26:29.523963" elapsed="0.118920"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-10-21T17:26:29.644026" level="INFO">${fullUrl} = https://www.saucedemo.com/inventory.html</msg>
+<var>${fullUrl}</var>
+<arg>SEPARATOR=</arg>
+<arg>${URL_DATA["baseUrl"]}</arg>
+<arg>${URL_DATA["inventoryUrl"]}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-10-21T17:26:29.643163" elapsed="0.000995"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${location}</arg>
+<arg>${fullUrl}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-10-21T17:26:29.644347" elapsed="0.000289"/>
+</kw>
+<status status="PASS" start="2024-10-21T17:26:29.523543" elapsed="0.121236"/>
+</kw>
+<status status="PASS" start="2024-10-21T17:26:27.888557" elapsed="1.803126"/>
+</test>
+<status status="PASS" start="2024-10-21T17:26:25.798922" elapsed="3.990775"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Login Steps">Login Steps</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
